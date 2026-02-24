@@ -28,11 +28,6 @@ export default function App() {
   }, []);
 
   const handleFetch = () => {
-    if (!address.trim()) {
-      Alert.alert("Enter address");
-      return;
-    }
-
     fetch(
       `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${API_KEY}`
     )
@@ -52,9 +47,9 @@ export default function App() {
           longitudeDelta: 0.01,
         });
       })
-      .catch(() => Alert.alert("Error fetching location"));
+      .catch(() => Alert.alert("Error"));
   };
-    if (!region) {
+  if (!region) {
     return <Text></Text>;
   }
 
